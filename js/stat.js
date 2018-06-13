@@ -5,7 +5,7 @@ var CLOUD_HEIGHT = 270;
 var CLOUD_X = 100;
 var CLOUD_Y = 10;
 var CLOUD_GAP = 10;
-var COLUMN_GAP = 40;
+// var COLUMN_GAP = 40;
 var FONT_GAP = 20;
 var GAP = 50;
 var BAR_WIDTH = 40;
@@ -58,12 +58,12 @@ window.renderStatistics = function (ctx, players, times) {
   drawMessage(ctx, 'Ура, Вы победили!', CLOUD_X + FONT_GAP, GAP);
   drawMessage(ctx, 'Список результатов:', CLOUD_X + FONT_GAP, GAP + FONT_GAP);
 
- for (var i = 0; i < players.length; i++) {
-  var barHeight = (HISTO_HEIGHT * times[i]) / maxTime;
-  ctx.fillText(Math.round(times[i]), CLOUD_X + GAP + (BAR_WIDTH + GAP) * i, CLOUD_Y + CLOUD_HEIGHT - GAP - barHeight - CLOUD_GAP);
-  ctx.fillStyle = getColor(players[i]);
-  ctx.fillRect(CLOUD_X + GAP + (BAR_WIDTH + GAP) * i, CLOUD_Y + CLOUD_HEIGHT - GAP - barHeight, BAR_WIDTH, barHeight);
-  ctx.fillStyle = BLACK_COLOR;
-  ctx.fillText(players[i], CLOUD_X + GAP + (BAR_WIDTH + GAP) * i, CLOUD_Y + CLOUD_HEIGHT - FONT_GAP);
- };
+  for (var i = 0; i < players.length; i++) {
+   var barHeight = (HISTO_HEIGHT * times[i]) / maxTime;
+   ctx.fillText(Math.round(times[i]), CLOUD_X + GAP + (BAR_WIDTH + GAP) * i, CLOUD_Y + CLOUD_HEIGHT - GAP - barHeight - CLOUD_GAP);
+   ctx.fillStyle = getColor(players[i]);
+   ctx.fillRect(CLOUD_X + GAP + (BAR_WIDTH + GAP) * i, CLOUD_Y + CLOUD_HEIGHT - GAP - barHeight, BAR_WIDTH, barHeight);
+   ctx.fillStyle = BLACK_COLOR;
+   ctx.fillText(players[i], CLOUD_X + GAP + (BAR_WIDTH + GAP) * i, CLOUD_Y + CLOUD_HEIGHT - FONT_GAP);
+  }
 };

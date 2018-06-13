@@ -3,7 +3,7 @@
 var ESC_KEY = 27;
 var ENTER_KEY = 13;
 var userDialog = document.querySelector('.setup');
-var similarWizardTemplate = document.querySelector("#similar-wizard-template")
+var similarWizardTemplate = document.querySelector('#similar-wizard-template')
   .content
   .querySelector('.setup-similar-item');
 var similarListContainer = document.querySelector('.setup-similar');
@@ -14,7 +14,6 @@ var userNameInput = document.querySelector('.setup-user-name');
 var mainWizardCoat = document.querySelector('.wizard-coat');
 var mainWizardEyes = document.querySelector('.wizard-eyes');
 var mainWizardFireball = document.querySelector('.setup-fireball-wrap');
-// var mainWizardInnerFire = document.querySelector('.setup-fireball');
 
 var wizardNames = [
   'Иван',
@@ -70,15 +69,15 @@ var addHidden = function (elem) {
 
 // Создание рандомных волшебников
 var generateRandom = function (propertyArr) {
-    return propertyArr[Math.floor(Math.random() * (propertyArr.length - 0)) + 0];
+  return propertyArr[Math.floor(Math.random() * (propertyArr.length - 0)) + 0];
 };
 
 var generateRandomWizard = function () {
   var randomWizard = {
-    name : generateRandom(wizardNames) + ' ' + generateRandom(wizardLastNames),
+    name: generateRandom(wizardNames) + ' ' + generateRandom(wizardLastNames),
     coatColor: generateRandom(wizardCoatColors),
     eyesColor: generateRandom(wizardEyesColors)
-  }
+  };
   return randomWizard;
 };
 
@@ -86,12 +85,12 @@ var wizards = [];
 
 for (var i = 0; i < 4; i++) {
   wizards[i] = generateRandomWizard();
-};
+}
 
 // Отрисовка волшебников
 var fragment = document.createDocumentFragment();
 
-for (var i = 0; i < wizards.length; i++) {
+for (i = 0; i < wizards.length; i++) {
   var wizardElement = similarWizardTemplate.cloneNode(true);
 
   wizardElement.querySelector('.setup-similar-label').textContent = wizards[i].name;
@@ -99,7 +98,7 @@ for (var i = 0; i < wizards.length; i++) {
   wizardElement.querySelector('.wizard-eyes').style.fill = wizards[i].eyesColor;
 
   fragment.appendChild(wizardElement);
-};
+}
 
 similarListElement.appendChild(fragment);
 
@@ -117,7 +116,7 @@ var closeDialogHandler = function () {
 };
 
 var escDialogHandler = function (evt) {
-  if /*(*/(evt.keyCode === ESC_KEY) /* && (!userNameInput.focus)) */ { // Почему-то ломается закрытие по ESC, если добавляю второе условие
+  if /* ( */ (evt.keyCode === ESC_KEY) /* && (!userNameInput.focus)) */ { // Почему-то ломается закрытие по ESC, если добавляю второе условие
     addHidden(userDialog);
   }
 };
@@ -138,7 +137,7 @@ setupClose.addEventListener('keydown', function (evt) {
 });
 
 // Валидация формы
-userNameInput.addEventListener('invalid', function (evt) {
+userNameInput.addEventListener('invalid', function () {
   if (userNameInput.validity.tooShort) {
     userNameInput.setCustomValidity('Имя должно состоять минимум из 2-х символов');
   } else if (userNameInput.validity.tooLong) {
