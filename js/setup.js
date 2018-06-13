@@ -116,7 +116,7 @@ var closeDialogHandler = function () {
 };
 
 var escDialogHandler = function (evt) {
-  if /* ( */ (evt.keyCode === ESC_KEY) /* && (!userNameInput.focus)) */ { // Почему-то ломается закрытие по ESC, если добавляю второе условие
+  if ((evt.keyCode === ESC_KEY) && (!userNameInput.focus)) { // Почему-то ломается закрытие по ESC, если добавляю второе условие
     addHidden(userDialog);
   }
 };
