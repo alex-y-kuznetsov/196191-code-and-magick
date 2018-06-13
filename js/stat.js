@@ -58,7 +58,7 @@ window.renderStatistics = function (ctx, players, times) {
   drawMessage(ctx, 'Ура, Вы победили!', CLOUD_X + FONT_GAP, GAP);
   drawMessage(ctx, 'Список результатов:', CLOUD_X + FONT_GAP, GAP + FONT_GAP);
 
-   for (var i = 0; i < players.length; i++) {
+  for (var i = 0; i < players.length; i++) {
     var barHeight = (HISTO_HEIGHT * times[i]) / maxTime;
     ctx.fillText(Math.round(times[i]), CLOUD_X + GAP + (BAR_WIDTH + GAP) * i, CLOUD_Y + CLOUD_HEIGHT - GAP - barHeight - CLOUD_GAP);
     ctx.fillStyle = getColor(players[i]);
